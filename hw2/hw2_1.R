@@ -47,15 +47,13 @@ fit1 <- lm(Output ~ SI + SP + I, gala)
 
 # ii.
 # Method 1.
-# aug_gala <- gala
-# aug_gala["SI^2"] <- gala$SI^2
-# aug_gala["SP*I"] <- gala$SI*gala$I
-# aug_X <- matrix(unlist(aug_gala[,-1]), ncol(aug_gala[,-1]), byrow = TRUE)
-# aug_X <- t(aug_X)
-# aug_fit <- lm(aug_gala$Output~aug_X)
-# print(summary(aug_fit))
-# # Call:
-# # lm(formula = aug_gala$Output ~ aug_X)
+aug_gala <- gala
+aug_gala["SIxSI"] <- gala$SI^2
+aug_gala["SPxI"] <- gala$SI*gala$I
+fita <- lm(Output ~ SI + SP + I + SIxSI + SPxI, aug_gala)
+coefficients(fita)
+# Call:
+# lm(formula = aug_gala$Output ~ aug_X)
 
 # # Residuals:
 # #     Min      1Q  Median      3Q     Max 
@@ -78,8 +76,8 @@ fit1 <- lm(Output ~ SI + SP + I, gala)
 # Note that the SP * I term is shorthand for SP + I + SP:I in our model.
 # I() to isolate
 fit2 <- lm(Output ~ SI + SP + I + I(SI^2) + SP:I, gala)
-
-print(summary(fit2))
+coefficients(fit2)
+# summary(fit2)
 # Call:
 # lm(formula = Output ~ SI + SP + I + I(SI^2) + SP:I, data = gala)
 

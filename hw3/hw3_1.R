@@ -95,3 +95,5 @@ p_val <- 1 - pf(F_stat, df_o - df_O, df_O) # the p-value of the overall F-test
 #   Res.Df     RSS Df Sum of Sq     F Pr(>F)
 # 1     17 1.07859                          
 # 2     14 0.95953  3   0.11905 0.579 0.6383 -> Same result
+
+sim <- function(x,y) sum(x*y) / sqrt(sum(x*x)) / sqrt(sum(y*y))
