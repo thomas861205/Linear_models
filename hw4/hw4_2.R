@@ -84,7 +84,7 @@ c(y0 - cv * bm, y0 + cv * bm)
 # 57.69899 73.48406
 
 # Method 2.
-predict(fit, data.frame(BDR=2, FLR=750, FP=1, RMS=5, ST=1, LOT=25, BTH=1.5, GAR=1), se=T, interval="confidence")
+predict(fit, data.frame(BDR=2, FLR=750, FP=1, RMS=5, ST=1, LOT=25, BTH=1.5, GAR=1), se=T, interval="prediction")
 # $fit
 #        fit      lwr      upr
 # 1 65.59152 57.69899 73.48406
