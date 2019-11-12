@@ -1,4 +1,4 @@
-gala <- read.table("C:/Users/Thomas/Downloads/Linear model/hw3/E3.7.txt", header=T)
+gala <- read.table("C:/Users/Thomas/Downloads/Linear_models/hw3/E3.7.txt", header=T)
 
 # Variable meaning
 # y   log (oxygen demand, mg oxygen per minute)
