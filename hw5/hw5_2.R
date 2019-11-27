@@ -21,14 +21,23 @@ summary(WLS)
 OLS <- lm(y ~ x)
 summary(OLS)
 
-plot(n, WLS$residuals, pch=1)
-legend("bottomleft", legend = c("WLS"), pch = c(1), lty = c(1))
+# plot(n, WLS$residuals, pch=1)
+# legend("bottomleft", legend = c("WLS"), pch = c(1), lty = c(1))
+# abline(a=0, b=0)
+
+sm <- lm(y ~ factor(x), weights=n)
+summary(sm)
+
+anova(WLS, sm)
+
+# plot(n, OLS$residuals, pch=4)
+# legend("bottomleft", legend = c("WLS", "OLS"), pch = c(1, 4), lty = c(1, 1))
+# abline(a=0, b=0)
+plot(n, WLS$residuals, pch=1, ylab="residuals")
+points(n, OLS$residuals, pch=4)
+legend("bottomleft", legend = c("WLS","OLS"), pch = c(1,4), lty = c(1,1))
 abline(a=0, b=0)
 
-
-plot(n, OLS$residuals, pch=4)
-legend("bottomleft", legend = c("WLS", "OLS"), pch = c(1, 4), lty = c(1, 1))
-abline(a=0, b=0)
 
 
 WLS.RSS <- sum(WLS$residuals^2)
