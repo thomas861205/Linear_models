@@ -1,5 +1,4 @@
-Height       Average Height    \# of
-of Father       of Son        Fathers
+Height_of_Father  Average_Height_of_Son  Number_of_Fathers
 62                65.5           2
 63                66.5           6
 64                66.8           12
