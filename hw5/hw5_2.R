@@ -13,15 +13,25 @@ n <- gala[,2]
 x <- gala[,3]
 y <- gala[,4]
 
-fit1 <- lm(y ~ x, weights=n)
-summary(fit1)
+WLS <- lm(y ~ x, weights=n)
+summary(WLS)
 # plot(x, y)
-# abline(fit1)
+# abline(WLS)
 
-fit2 <- lm(y ~ x)
-summary(fit2)
+OLS <- lm(y ~ x)
+summary(OLS)
 
-plot(n, fit1$residuals, pch=1)
-points(n, fit2$residuals, pch=4)
+plot(n, WLS$residuals, pch=1)
+legend("bottomleft", legend = c("WLS"), pch = c(1), lty = c(1))
+abline(a=0, b=0)
+
+
+plot(n, OLS$residuals, pch=4)
 legend("bottomleft", legend = c("WLS", "OLS"), pch = c(1, 4), lty = c(1, 1))
 abline(a=0, b=0)
+
+
+WLS.RSS <- sum(WLS$residuals^2)
+WLS.RSS
+OLS.RSS <- sum(OLS$residuals^2)
+OLS.RSS
