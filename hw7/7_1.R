@@ -1,6 +1,13 @@
 gala <- read.table("C:/Users/Thomas/Downloads/Linear_models/hw7/climate.txt", header=T)
 plot(gala$year, gala$temp)
 
+# ii
+dyear <- diff(gala$year)
+dyear[dyear > 1] # gap in the missing years
+which(dyear > 1)
+fala <- read.table("C:/Users/Thomas/Downloads/Linear_models/hw7/climate_fix.txt", header=T)
+
+
 # iii backward elinimation
 fit10 <- lm(temp ~ poly(year, 10), data=gala)
 fit9 <- lm(temp ~ poly(year, 9), data=gala)
